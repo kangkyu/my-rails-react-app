@@ -9,10 +9,10 @@ Bundler.require(*Rails.groups)
 module ScaffoldApp
   class Application < Rails::Application
 
-    config.assets.paths << Rails.root.join('app', 'assets', 'components')
-    
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+
     # config.react.jsx_transformer_class = React::JSX::JSXTransformer
-    config.react.jsx_transformer_class = React::JSX::BabelTransformer
+    # config.react.jsx_transformer_class = React::JSX::BabelTransformer
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

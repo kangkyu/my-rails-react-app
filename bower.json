@@ -1,6 +1,8 @@
 {
   "name": "react in :rails",
   "dependencies": {
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "react": "~0.14.0",
+    "react-dom": "~0.1.0"
   }
 }

@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.1.7'
-gem 'react-rails', '~> 1.4.0'
-
+# gem 'react-rails', '~> 1.4.0'
 
 
 
