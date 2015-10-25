@@ -1,8 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   
-  config.react.variant = :development
-  config.react.addons = true # defaults to false
+  # config.react.variant = :development
+  # config.react.addons = true # defaults to false
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
