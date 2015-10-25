@@ -4,14 +4,11 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.all
-
-    respond_to do |format|
-      format.html { @accounts }
-      format.json { render json: @accounts }
-    end
-    # This custom renderer behaves the same as a normal view renderer and accepts the usual arguments - content_type, layout, location and status. By default, your current layout will be used and the component, rather than a view, will be rendered in place of yield.
-    render component: 'AccountList', props: { accounts: @accounts }, tag: 'span'
+    render json: @accounts = Account.all
+    # respond_to do |format|
+    #   format.html { render component: 'AccountList', props: { accounts: @accounts }, tag: 'span' }
+    #   format.json { render json: @accounts }
+    # end
   end
 
   # GET /accounts/1

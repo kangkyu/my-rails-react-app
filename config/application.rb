@@ -9,6 +9,8 @@ Bundler.require(*Rails.groups)
 module ScaffoldApp
   class Application < Rails::Application
 
+    config.assets.paths << Rails.root.join('app', 'assets', 'components')
+    
     # config.react.jsx_transformer_class = React::JSX::JSXTransformer
     config.react.jsx_transformer_class = React::JSX::BabelTransformer
 
