@@ -1,4 +1,4 @@
-// tutorial4.js
+  // tutorial4.js
   var Comment = React.createClass({
     render: function() {
       return (
