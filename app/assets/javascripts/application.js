@@ -3,4 +3,5 @@
 //= require turbolinks
 //= require react/react
 //= require react/react-dom
+//= require babel-core/browser
 //= require components

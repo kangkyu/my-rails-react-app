@@ -16,4 +16,8 @@
 !/log/.keep
 /tmp
 
-vendor/assets/components/
+vendor/assets/bower_components/
+node_modules/
+
+# include later in all
+write_down.md
