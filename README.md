@@ -2,7 +2,7 @@
 
 My goal was to consume its own JSON of Rails by passing url in a way shows on this tutorial https://facebook.github.io/react/docs/tutorial.html#fetching-from-the-server
 
-```
+```jsx
 ReactDOM.render(
   <CommentBox url="/api/comments" />,
   document.getElementById('content')
@@ -15,7 +15,7 @@ https://github.com/kangkyu/my-rails-react-app
 
 ### Install & Run local
 
-```
+```sh
 npm install
 bundle install
 rails server
@@ -27,7 +27,7 @@ For a try-out, this app simply follows https://facebook.github.io/react/docs/tut
 
 the tutorial starts with remote links of `react` `react-dom` `browser` `jquery` in html head tag.
 
-```
+```html
 <head>
   <meta charset="utf-8" />
   <title>React Tutorial</title>
@@ -44,14 +44,14 @@ http://linhmtran168.github.io/blog/2014/02/28/using-bower-with-rails/
 
 Setup `bower` and install these two. but not `babel-core/browser`
 
-```
+```sh
 bower install --save react
 bower install --save react-dom
 ```
 
 Add directory name to those three files:
 
-```
+```sh
 .bowerrc
 .gitignore
 config/application.rb
@@ -59,7 +59,7 @@ config/application.rb
 
 For directory name I picked `vendor/assets/bower_components`.
 
-```
+```rb
 # .bowerrc
 {
   "directory": "vendor/assets/bower_components"
@@ -74,13 +74,13 @@ config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
 
 `react` `react-dom` `jquery` are ready. (**jQuery** was already in Rails by default `gem 'jquery-rails'`)
 
-```
+```sh
 npm install --save babal-core
 ```
 
 `babel-core/browser` should be installed by `npm`
 
-```
+```rb
 # .gitignore
 node_modules/
 
@@ -90,7 +90,7 @@ config.assets.paths << Rails.root.join('node_modules')
 
 And then, require all of them in `application.js`
 
-```
+```js
 app/assets/javascripts/application.js
 
 //= require jquery
