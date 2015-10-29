@@ -21,9 +21,9 @@ bundle install
 rails server
 ```
 
-### Notes
+## Notes
 
-For a try-out, this app simply follows https://facebook.github.io/react/docs/tutorial.html
+For this try-out app I simply follow https://facebook.github.io/react/docs/tutorial.html tutorial
 
 the tutorial starts with remote links of `react` `react-dom` `browser` `jquery` in html head tag.
 
@@ -38,16 +38,11 @@ the tutorial starts with remote links of `react` `react-dom` `browser` `jquery` 
 </head>
 ```
 
-https://www.codefellows.org/blog/5-ways-to-manage-front-end-assets-in-rails
-https://coderwall.com/p/6bmygq/heroku-rails-bower
-http://linhmtran168.github.io/blog/2014/02/28/using-bower-with-rails/
++ https://www.codefellows.org/blog/5-ways-to-manage-front-end-assets-in-rails
++ https://coderwall.com/p/6bmygq/heroku-rails-bower
++ http://linhmtran168.github.io/blog/2014/02/28/using-bower-with-rails/
 
-Setup `bower` and install these two. but not `babel-core/browser`
-
-```sh
-bower install --save react
-bower install --save react-dom
-```
+Setup `bower` and install react.
 
 Add directory name to those three files:
 
@@ -72,13 +67,21 @@ vendor/assets/bower_components/
 config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
 ```
 
-`react` `react-dom` `jquery` are ready. (**jQuery** was already in Rails by default `gem 'jquery-rails'`)
+Then install these two.
 
 ```sh
-npm install --save babal-core
+bower init
+bower install --save react
+bower install --save react-dom
 ```
 
+`react` `react-dom` `jquery` are ready. (**jQuery** was already in Rails by default `gem 'jquery-rails'`)
+
 `babel-core/browser` should be installed by `npm`
+
+```sh
+sudo npm install --save babel-core
+```
 
 ```rb
 # .gitignore
@@ -100,6 +103,8 @@ app/assets/javascripts/application.js
 //= require react/react-dom
 //= require babel-core/browser
 ```
+
+--
 
 pull out js code out of view file and move into a separate file `app/assets/javascript/scripts/example.js`
 
