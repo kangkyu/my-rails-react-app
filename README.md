@@ -100,3 +100,31 @@ app/assets/javascripts/application.js
 //= require react/react-dom
 //= require babel-core/browser
 ```
+
+pull out js code out of view file and move into a separate file `app/assets/javascript/scripts/example.js`
+
+```html
+<!-- single_page.html.erb -->
+<script type="text/babel" src='scripts/example.js'></script>
+```
+
+didn't work. that link simply comming from "/script" route.
+
+```
+<script type="text/babel" src=<%= asset_path 'scripts/example.js' %>></script>
+```
+
+gave out an error.
+
+```
+Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( scripts/example.js )` to `config/initializers/assets.rb` and restart your server
+```
+
+followed instruction on the error message.
+
+```rb
+# config/initializers/assets.rb
+Rails.application.config.assets.precompile += %w( scripts/example.js )
+```
+
+And it worked then.
