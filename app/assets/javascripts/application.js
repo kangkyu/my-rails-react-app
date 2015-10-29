@@ -4,3 +4,5 @@
 //= require react/react
 //= require react/react-dom
 //= require babel-core/browser
+
+//= require scripts/example
