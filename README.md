@@ -10,12 +10,12 @@ ReactDOM.render(
 ```
 
 I didn't want to use `react-rails` this time and wanted not to touch controller for rendering components.
+`react-rails` gem was tried at [kangkyu/try_react-rails_gem](https://github.com/kangkyu/try_react-rails_gem)
 
-https://github.com/kangkyu/my-rails-react-app
-
-### Install & Run local
+## Install & Run local
 
 ```sh
+bower install
 npm install
 bundle install
 rails server
@@ -23,9 +23,7 @@ rails server
 
 ## Notes
 
-For this try-out app I simply follow https://facebook.github.io/react/docs/tutorial.html tutorial
-
-the tutorial starts with remote links of `react` `react-dom` `browser` `jquery` in html head tag.
+For this try-out app I simply follow [facebook/react](https://facebook.github.io/react/docs/tutorial.html) tutorial - and the tutorial starts with remote links of `react` `react-dom` `browser` `jquery` in html head tag.
 
 ```html
 <head>
@@ -38,13 +36,19 @@ the tutorial starts with remote links of `react` `react-dom` `browser` `jquery` 
 </head>
 ```
 
+I wanted to do it in Rails Assets style like this:
+
+```js
+//= require react/react
+```
+
+### React: from bower
+
 + https://www.codefellows.org/blog/5-ways-to-manage-front-end-assets-in-rails
 + https://coderwall.com/p/6bmygq/heroku-rails-bower
 + http://linhmtran168.github.io/blog/2014/02/28/using-bower-with-rails/
 
-Setup `bower` and install react.
-
-Add directory name to those three files:
+Setup `bower` and install react. In short, we need add a directory name to those three files:
 
 ```sh
 .bowerrc
@@ -52,9 +56,9 @@ Add directory name to those three files:
 config/application.rb
 ```
 
-For directory name I picked `vendor/assets/bower_components`.
+For the directory name, I picked `vendor/assets/bower_components`.
 
-```rb
+```sh
 # .bowerrc
 {
   "directory": "vendor/assets/bower_components"
@@ -75,12 +79,21 @@ bower install --save react
 bower install --save react-dom
 ```
 
-`react` `react-dom` `jquery` are ready. (**jQuery** was already in Rails by default `gem 'jquery-rails'`)
+### jquery
 
-`babel-core/browser` should be installed by `npm`
+**jQuery** was already in Rails by default `gem 'jquery-rails'`.
+
+Now, `react` `react-dom` `jquery` are ready.
+
+### browser.js
+
++ [in-browser-jsx-transform](https://facebook.github.io/react/docs/tooling-integration.html#in-browser-jsx-transform) used here
+
+`babel-core/browser` should be installed by `npm`.
+Follow the steps of [this article](https://pawelgrzybek.com/fix-priviliges-and-never-again-use-sudo-with-npm/) and let's not use `sudo npm`.
 
 ```sh
-sudo npm install --save babel-core
+npm install --save babel-core
 ```
 
 ```rb
@@ -104,7 +117,7 @@ app/assets/javascripts/application.js
 //= require babel-core/browser
 ```
 
---
+## More..
 
 pull out js code out of view file and move into a separate file `app/assets/javascript/scripts/example.js`
 
@@ -113,7 +126,7 @@ pull out js code out of view file and move into a separate file `app/assets/java
 <script type="text/babel" src='scripts/example.js'></script>
 ```
 
-didn't work. that link simply comming from "/script" route.
+didn't work. that link simply coming from "/script" route.
 
 ```
 <script type="text/babel" src=<%= asset_path 'scripts/example.js' %>></script>
